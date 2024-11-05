@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ competitions.CompetitionName }} - BestScorers</h1>
+<p>
+  <b>Competition Id: </b>{{ competitions.CompetitionId }}
+</p>
+<p>
+    <b>Competition Name </b>{{ competitions.CompetitionName }}
+</p>
+<table>
+    <tr>
+      <th>
+        <b>Player ID</b>
+      </th>
+      <th>
+        <b>Player Name</b>
+      </th>
+      <th>
+        <b>Goals Scored</b>
+      </th>
+    </tr>
+
+    {% for s in scorers %}
+    <tr>
+      <td>
+        <a href="/players/{{ s.PLayerId }}">{{ s.PlayerId }}</a>
+      </td>
+      <td>
+        {{ s.PlayerName }}
+      </td>
+      <td>
+        {{ s.nrgolos }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+  
+{% endblock %}

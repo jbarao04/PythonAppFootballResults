@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Games</h1>
+<table>
+  <tr>
+    <th>
+        <b>Id</b>
+    </th>
+    <th>
+      <b>Data</b>
+    </th>
+    <th>
+      <b>HomeScore</b>
+    </th>
+    <th>
+      <b>AwayScore</b>
+    </th>
+    <th>
+        <b>Competition</b>
+    </th>
+    <th>
+        <b>City</b>
+    </th>
+    <th>
+        <b>Country</b>
+    </th>
+    <th>
+      <b>Neutral</b>
+    </th>
+  </tr>
+
+  {% for game in games %}
+  <tr>
+    <td>
+      <a href="/games/{{ game.GameId }}">{{ game.GameId }}</a>
+    </td>
+    <td>
+      {{ game.Date }}
+    </td>
+    <td>
+      {{ game.HName }} {{ game.HomeScore }}
+    </td>
+    <td>
+      {{ game.AwayScore }} {{ game.AName }}
+    </td>
+    <td>
+      {{ game.comp }}
+    </td>
+    <td>
+        {{ game.City }}
+    </td>
+    <td>
+        {{ game.Country }}
+    </td>
+    <td>
+      {{ game.Neutral }}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1> BestScorers of any competitions</h1>
+  <table>
+    <tr>
+      <th>
+        <b>PlayerName</b>
+      </th>
+      <th>
+        <b>Team Name</b>
+      </th>
+      <th>
+        <b>Competition Name</b>
+      </th>
+      <th>
+        <b>Total Goals</b>
+      </th>
+    </tr>
+
+    {% for p in scorerscompetitions %}
+    <tr>
+      <td>
+        <a href="/players/{{ p.PlayerId }}">{{ p.PLayerName }}</a>
+      </td>
+      <td>
+        {{ p.TeamName }}
+      </td>
+      <td>
+        {{ p.CompetitionName }}
+      </td>
+      <td>
+        {{ p.total_gols }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

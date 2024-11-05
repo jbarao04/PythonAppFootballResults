@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1> Games with the most Nª Goals</h1>
+  <table>
+    <tr>
+      <th>
+        <b>Home Team</b>
+      </th>
+      <th>
+        <b>Away Team</b>
+      </th>
+      <th>
+        <b>Score</b>
+      </th>
+      <th>
+        <b>Total Goals</b>
+      </th>
+      <th>
+        <b>Competition</b>
+      </th>
+    </tr>
+
+    {% for p in gamesgoals %}
+    <tr>
+      <td>
+        {{p.Home}}
+      </td>
+      <td>
+        {{ p.Away }}
+      </td>
+      <td>
+        {{ p.HomeScore }} - {{p.AwayScore}}
+      </td>
+      <td>
+        {{ p.TotalGoals }}
+      </td>
+      <td>
+        {{ p.CompetitionName }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

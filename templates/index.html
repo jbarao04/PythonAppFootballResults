@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>About</h2>
+<p>This web application illustrates the use of the International Football Results
+database. The application is built using 
+<a href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Some database statistics</h2>
+<table>
+<tr>
+  <th>Items</th>
+  <th>Count</th>
+</tr>
+<tr>
+  <td>Games</td>
+  <td>{{ stats.n_games }}</td>
+</tr>
+<tr>
+  <td>Goals</td>
+  <td>{{ stats.n_goals }}</td>
+</tr>
+<tr>
+  <td>Teams</td>
+  <td>{{ stats.n_teams }}</td>
+</tr>
+<tr>
+  <td>Competitions</td>
+  <td>{{ stats.n_competitions }}</td>
+</tr>
+<tr>
+  <td>Players</td>
+  <td>{{ stats.n_players }}</td>
+</tr>
+</table>
+
+
+<h2>Sample functionality</h2>
+
+<h3>Games</h3>
+<p>
+   <a href="/games">List all</a>
+</p>
+<p>Get game info:
+<form name="mid" action="javascript:window.open('/games/'+document.forms['mid'].elements['id'].value,'_self')">
+   Game Id:<input value="38617" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+<p> Games with the most nºGoals
+   <a href="/gamesgoals">List the top 100</a>
+</p>
+
+<h3>Goals</h3>
+<p>
+   <a href="/goals">List all</a>
+</p>
+<p>Get goal info:
+<form name="goalForm" action="javascript:window.open('/goals/'+document.forms['goalForm'].elements['id'].value,'_self')">
+   Goal Id:<input value="35279" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<h3>Competitions</h3>
+<p>
+   <a href="/competitions">List all</a>
+</p>
+
+<p>Get competition info:
+<form name="competitionForm" action="javascript:window.open('/competitions/'+document.forms['competitionForm'].elements['id'].value,'_self')">
+   Competition Id:<input value="72" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+<p>Search by Competition Name:
+   <form name="compsearch" action="javascript:window.open('/competitions/search/'+document.forms['compsearch'].elements['comp'].value,'_self')">
+     <input name="comp" id="expr" value="FIFA World Cup" required/>
+     <input type="submit" value="search"/>
+   </form>
+   </p>
+
+<h3>Teams</h3>
+<p>
+   <a href="/teams">List all</a>
+</p>
+<p>Get team info:
+<form name="teamForm" action="javascript:window.open('/teams/'+document.forms['teamForm'].elements['id'].value,'_self')">
+   Team Id:<input value="216" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<p>Search by Team Name:
+    <form name="teamsearch" action="javascript:window.open('/teams/search/'+document.forms['teamsearch'].elements['exprteam'].value,'_self')">
+      <input name="exprteam" id="expr" value="Portugal" required/>
+      <input type="submit" value="search"/>
+    </form>
+    </p>
+<p> Team Stats
+<a href="/stats">List all</a>
+</p>
+<h3>Players</h3>
+<p>
+   <a href="/players">List all</a>
+</p>
+<p>Get player info:
+<form name="playerForm" action="javascript:window.open('/players/'+document.forms['playerForm'].elements['id'].value,'_self')">
+   PLayer Id:<input value="2540" name="id" type="number" min="1"/><input type="submit" value="get"/>
+</form>
+</p>
+
+<p>Search by Player Name:
+   <form name="msearch" action="javascript:window.open('/players/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+     <input name="expr" id="expr" value="Cristiano Ronaldo" required/>
+     <input type="submit" value="search"/>
+   </form>
+   </p>
+
+<h3>Best Scorers</h3>
+<p>
+   <a href="/bestscorers">List all competitions to choose one</a>
+</p>
+
+<p>Get bestscorers info:
+<form name="bestscorersForm" action="javascript:window.open('/bestscorers/'+document.forms['bestscorersForm'].elements['id'].value,'_self')">
+   Competition Id:<input value="72" name="id" type="number" min="1"/><input type="submit" value="Search for best scorers"/>
+</form>
+</p>
+
+<p>Best Scorer of any competition
+   <a href="/scorerscompetitions">Clica</a>
+</p>
+
+{% endblock %}

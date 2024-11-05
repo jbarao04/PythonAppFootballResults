@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ players.PlayerName }}</h1>
+<p>
+  <b>PlayerId: </b>{{ players.PlayerId }}
+</p>
+<p>
+    <b>Player Name </b>{{ players.PlayerName }}
+</p>
+<p>
+  <b>Goals Scored: </b>{{ goalsscored[0].gscored }}
+</p>
+<p>
+    <b>Goals: </b>
+  <ul>
+    {% for g in goals %}
+    <li>
+      <a href="/goals/{{ g.GoalId }}">{{ players.PlayerName }}' {{g.Minute}} {{g.Home}} - {{g.Away}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  </p>
+  
+{% endblock %}

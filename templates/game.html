@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ game.HName }} - {{game.AName}}</h1>
+<p>
+  <b>GameId: </b>{{ game.GameId }}
+</p>
+<p>
+  <b>Data: </b>{{ game.Date }}
+</p>
+<p>
+  <b>Score: </b>{{ game.HomeScore }} - {{game.AwayScore}}
+</p>
+<p>
+  <b>Local: </b>{{ game.City }}, {{game.Country}}
+</p>
+<p>
+    <b>Neutral: </b>{{ game.Neutral }}
+  </p>
+<p>
+  <b>Teams: </b>
+<ul>
+  {% for g in teams %}
+  <li>
+    <a href="/teams/{{ g.TeamId }}">{{ g.TeamName }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+<p>
+  <b>Competitions: </b>
+<ul>
+  {% for a in competitions %}
+  <li>
+    <a href="/competitions/{{ a.CompetitionId }}">{{ a.CompetitionName }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% if goals %}
+<p>
+  <b>Goals: </b>
+<ul>
+  {% for s in goals %}
+  <li>
+    <a href="/goals/{{ s.GoalId }}">{{ s.PlayerName }} '{{s.Minute}}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ goals.Scorer }}' {{goals.Minute}}</h1>
+<p>
+  <b>GoalId: </b>{{ goals.GoalId }}
+</p>
+<p>
+    <b>Scorer: </b>{{ goals.Scorer }}
+</p>
+<p>
+    <b>Team: </b>
+  <ul>
+    {% for g in teams %}
+    <li>
+      <a href="/teams/{{ g.TeamId }}">{{ g.nome }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  </p>
+  <p>
+    <b>Game: </b>
+  <ul>
+    {% for g in games %}
+    <li>
+      <a href="/games/{{ g.GameId }}">{{ g.HName }} - {{g.AName}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  </p>
+<p>
+  <b>Minute: </b>{{ goals.Minute }}
+</p>
+<p>
+  <b>Penalty: </b>{{ goals.Penalty }}
+</p>
+<p>
+  <b>Own Goal: </b>{{ goals.OwnGoal }} 
+</p>
+{% endblock %}

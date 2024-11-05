@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Competitions</h1>
+  <table>
+    <tr>
+      <th>
+        <b>Competition ID</b>
+      </th>
+      <th>
+        <b>Competition Name</b>
+      </th>
+    </tr>
+
+    {% for competition in competitions %}
+    <tr>
+      <td>
+        <a href="/competitions/{{ competition.CompetitionId }}">{{ competition.CompetitionId }}</a>
+      </td>
+      <td>
+        {{ competition.CompetitionName }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

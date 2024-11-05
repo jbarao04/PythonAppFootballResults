@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ teams.TeamName }}</h1>
+<p>
+  <b>Team Id: </b>{{ teams.TeamId }}
+</p>
+<p>
+  <b>Team Name: </b>{{ teams.TeamName }}
+</p>
+<p>
+  <b>Games: </b>
+<ul>
+  {% for g in games %}
+  <li>
+    <a href="/games/{{ g.GameId }}">{{ g.HomeTeamName }} {{g.HomeScore}} - {{g.AwayScore}} {{g.AwayTeamName}} ({{g.Date}})</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

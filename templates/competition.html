@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ competitions.CompetitionName }}</h1>
+<p>
+  <b>Competition Id: </b>{{ competitions.CompetitionId }}
+</p>
+<p>
+  <b>Competition Name: </b>{{ competitions.CompetitionName }}
+</p>
+<p>
+    <b>Nº Games: </b> {{ njogos[0].nr }}
+</p>
+<p>
+  <b>Games: </b>
+<ul>
+  {% for g in games %}
+  <li>
+    <a href="/games/{{ g.GameId }}">{{ g.HName }} {{g.HomeScore}} - {{g.AwayScore}} {{g.AName}} ({{g.Date}})</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

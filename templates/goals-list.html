@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+  <h1>Goals</h1>
+  <table>
+    <tr>
+      <th>
+        <b>Date</b>
+      </th>
+      <th>
+        <b>Scorer</b>
+      </th>
+      <th>
+        <b>Game</b>
+      </th>
+      <th>
+        <b>Minute</b>
+      </th>
+      <th>
+        <b>Own Goal</b>
+      </th>
+      <th>
+        <b>Penalty</b>
+      </th>
+      <th>
+        <b>Team</b>
+      </th>
+    </tr>
+
+    {% for goal in goals %}
+    <tr>
+      <td>
+        {{ goal.Date }}
+      </td>
+      <td>
+        {{ goal.Scorer }}
+      </td>
+      <td>
+        <a href="/games/{{ goal.Game }}">{{ goal.Game }}</a>
+      </td>
+      <td>
+        {{ goal.Minute }}
+      </td>
+      <td>
+        {{ goal.OwnGoal }}
+      </td>
+      <td>
+        {{ goal.Penalty }}
+      </td>
+      <td>
+        {{ goal.TeamName }}
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
